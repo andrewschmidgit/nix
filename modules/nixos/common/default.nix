@@ -23,7 +23,6 @@
     shell = pkgs.zsh;
   };
 
-  programs.fish.enable = true;
   programs.zsh.enable = true;
 
   # Add ~/.local/bin to PATH
@@ -38,8 +37,6 @@
   # System packages
   environment.systemPackages = with pkgs; [
     git
-    zsh
-    fish
     vim
   ];
 

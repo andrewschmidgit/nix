@@ -4,9 +4,9 @@
   ...
 }: {
   imports = [
-    ../programs/fish
     ../programs/git
     ../programs/tmux
+    ../programs/zsh
   ];
 
   home = {

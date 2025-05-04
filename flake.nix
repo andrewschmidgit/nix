@@ -37,6 +37,8 @@
           home-manager.nixosModules.home-manager {
             home-manager.users.${username} = import ./home/${username}/${hostname};
 
+            home-manager.backupFileExtension = "backup";
+
             home-manager.extraSpecialArgs = {
               inherit inputs;
               userConfig = users.${username};
