@@ -1,6 +1,7 @@
 {
   pkgs,
   userConfig,
+  rootDir,
   ...
 }: {
   imports = [
@@ -12,6 +13,11 @@
   home = {
     username = "${userConfig.name}";
     homeDirectory = "/home/${userConfig.name}";
+    
+    file.".local/bin" = {
+      source = ../../../scripts;
+      recursive = true;
+    };
   };
 
   home.packages = with pkgs; [
