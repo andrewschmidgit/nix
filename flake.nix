@@ -54,6 +54,11 @@
         hostname = "albatross";
         username = "andrew";
       };
+
+      pelican = mkNixosConfiguration {
+        hostname = "pelican";
+        username = "andrew";
+      };
     };
   };
 }
