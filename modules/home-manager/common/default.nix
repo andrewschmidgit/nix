@@ -25,6 +25,8 @@
     vim
     neovim
     wl-clipboard
+    just
+    fzf
 
     # archives
     zip
