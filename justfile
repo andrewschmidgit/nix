@@ -9,6 +9,6 @@ deploy machine hostname='':
     nixos-rebuild switch \
       --fast \
       --flake ".#{{machine}}" \
-      --target-host "{{hostname}}"
+      --target-host "{{hostname}}" \
       --use-remote-sudo
   fi
