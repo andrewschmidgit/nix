@@ -3,7 +3,7 @@
 {
   programs.alacritty = {
     enable = true;
-    theme = "argonaut";
+    theme = "everforest_dark";
     settings = {
       font = {
       	normal = {
