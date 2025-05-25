@@ -1,6 +1,7 @@
 { hmModules, ... }: {
   imports = [
     "${hmModules}/common"
+    "${hmModules}/programs/alacritty"
     "${hmModules}/programs/sway"
   ];
 

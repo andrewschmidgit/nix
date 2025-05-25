@@ -5,6 +5,8 @@
   ...
 }: {
   imports = [
+    ./fonts.nix
+
     ../programs/git
     ../programs/tmux
     ../programs/zsh
