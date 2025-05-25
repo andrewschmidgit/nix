@@ -7,6 +7,7 @@
   imports = [
     ./hardware-configuration.nix
     "${nixosModules}/common"
+    "${nixosModules}/desktop/sway"
   ];
 
   boot.loader.grub.enable = true;

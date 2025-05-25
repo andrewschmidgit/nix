@@ -1,6 +1,7 @@
 { hmModules, ... }: {
   imports = [
     "${hmModules}/common"
+    "${hmModules}/programs/sway"
   ];
 
   programs.home-manager.enable = true;
