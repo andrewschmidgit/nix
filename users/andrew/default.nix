@@ -21,6 +21,10 @@
     };
   };
 
+  home.sessionVariables = {
+    EDITOR = "vim";
+  };
+
   home.packages = with pkgs; [
     # fonts
     nerd-fonts.jetbrains-mono
