@@ -1,7 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, hostname, ... }:
 
 {
   imports = [
+    ./hosts/${hostname}/nixos.nix
   ];
 
   # User
