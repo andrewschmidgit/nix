@@ -12,3 +12,6 @@ deploy machine hostname='':
       --target-host "{{hostname}}" \
       --use-remote-sudo
   fi
+
+cypher FILE:
+  agenix -e {{FILE}}

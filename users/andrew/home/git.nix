@@ -1,7 +1,8 @@
-{ ... }: {
+{ config, ... }: {
   programs.git = {
     enable = true;
     userName = "Andrew Schmid";
+    userEmail = config.age.secrets.andrewEmail.path;
 
     signing = {
       key = "~/.ssh/id_ed25519.pub";

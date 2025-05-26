@@ -20,6 +20,7 @@
     home-manager,
     ... }@inputs:
   let
+    secretsPath = ./secrets;
     mkNixosConfiguration = {
       hostname, # required string
       username, # required string
@@ -28,7 +29,7 @@
         inherit system;
 
         specialArgs = {
-          inherit inputs hostname username;
+          inherit inputs hostname username secretsPath;
           nixosModules = "${self}/modules/nixos";
         };
 
@@ -46,8 +47,10 @@
             home-manager.backupFileExtension = "backup";
 
             home-manager.extraSpecialArgs = {
-              inherit inputs hostname username;
+              inherit inputs hostname username secretsPath;
             };
+
+            home-manager.sharedModules = [ agenix.homeManagerModules.default ];
           }
         ];
       };

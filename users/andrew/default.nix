@@ -9,6 +9,8 @@
 
   programs.home-manager.enable = true;
 
+  age.secrets.andrewEmail.file = ./email.age;
+
   home = {
     username = username;
     homeDirectory = "/home/${username}";
