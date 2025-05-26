@@ -1,7 +1,7 @@
-{ userConfig, ... }: {
+{ ... }: {
   programs.git = {
     enable = true;
-    userName = "${userConfig.fullName}";
+    userName = "Andrew Schmid";
 
     signing = {
       key = "~/.ssh/id_ed25519.pub";

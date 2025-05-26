@@ -7,8 +7,8 @@
 
 {
   imports = [
-    ../alacritty
-    ../rofi
+    ./alacritty.nix
+    ./rofi
   ];
 
   home.packages = with pkgs; [

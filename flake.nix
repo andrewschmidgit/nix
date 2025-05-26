@@ -15,34 +15,25 @@
     home-manager,
     ... }@inputs:
   let
-    users = {
-      andrew = {
-        fullName = "Andrew Schmid";
-        name = "andrew";
-      };
-    };
-
     mkNixosConfiguration = {
       hostname, # required string
       username, # required string
     }: nixpkgs.lib.nixosSystem {
         specialArgs = {
-          inherit inputs hostname;
-          userConfig = users.${username};
+          inherit inputs hostname username;
           nixosModules = "${self}/modules/nixos";
         };
 
         modules = [
           ./hosts/${hostname}
+	  ./users/${username}/nixos
           home-manager.nixosModules.home-manager {
-            home-manager.users.${username} = import ./home/${username}/${hostname};
+            home-manager.users.${username} = import ./users/${username};
 
             home-manager.backupFileExtension = "backup";
 
             home-manager.extraSpecialArgs = {
-              inherit inputs;
-              userConfig = users.${username};
-              hmModules = "${self}/modules/home-manager";
+              inherit inputs hostname username;
             };
           }
         ];

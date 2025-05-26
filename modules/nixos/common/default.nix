@@ -1,8 +1,6 @@
+{ pkgs, ... }:
+
 {
-  userConfig,
-  pkgs,
-  ...
-}: {
   i18n.defaultLocale = "en_US.UTF-8";
   time.timeZone = "America/Chicago";
 
@@ -17,20 +15,6 @@
       auto-optimise-store = true;
     };
   };
-
-  # Wayland
-  security.polkit.enable = true;
-  hardware.graphics.enable = true;
-
-  # User
-  users.users.${userConfig.name} = {
-    description = userConfig.fullName;
-    extraGroups = [ "networkmanager" "wheel" ];
-    isNormalUser = true;
-    shell = pkgs.zsh;
-  };
-
-  programs.zsh.enable = true;
 
   # Add ~/.local/bin to PATH
   environment.localBinInPath = true;
