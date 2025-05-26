@@ -25,6 +25,9 @@
       gl = "git log --graph --abbrev-commit";
       gp = "git push";
       gpu = "git pull";
+
+      # tmux-sessionizer
+      ts = "tmux-sessionizer.sh";
     };
   };
 }
