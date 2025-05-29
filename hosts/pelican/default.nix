@@ -9,6 +9,8 @@
 {
   imports = [
     ./hardware-configuration.nix
+
+    ./immich.nix
   ];
 
   extraServices.podman.enable = true;
