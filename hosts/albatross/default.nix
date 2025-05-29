@@ -1,13 +1,11 @@
 {
+  pkgs,
   inputs,
   hostname,
-  nixosModules,
-  pkgs,
   ...
 }: {
   imports = [
     ./hardware-configuration.nix
-    "${nixosModules}/common"
   ];
 
   programs.sway.enable = true;

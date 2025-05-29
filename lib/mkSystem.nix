@@ -1,4 +1,4 @@
-{ configRoot, nixpkgs, inputs, ... }:
+{ nixpkgs, inputs, ... }:
 
 {
   hostname,
@@ -22,12 +22,13 @@ in nixpkgs.lib.nixosSystem {
 
   specialArgs = {
     inherit inputs hostname username;
-    nixosModules = "${configRoot}/modules/nixos";
   };
 
   modules = [
     hostConfig
     userOsConfig
+
+    ../modules
 
     # agenix
     agenix.nixosModules.default

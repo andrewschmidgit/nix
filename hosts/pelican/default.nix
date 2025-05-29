@@ -3,15 +3,15 @@
   config,
   username,
   hostname,
-  nixosModules,
   ...
 }:
 
 {
   imports = [
     ./hardware-configuration.nix
-    "${nixosModules}/common"
   ];
+
+  extraServices.podman.enable = true;
 
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";

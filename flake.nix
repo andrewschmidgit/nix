@@ -21,7 +21,6 @@
     ... }@inputs:
   let
     mkSystem = import ./lib/mkSystem.nix {
-      configRoot = self;
       inherit nixpkgs inputs;
     };
   in
