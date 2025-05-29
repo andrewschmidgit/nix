@@ -1,11 +1,6 @@
-{ pkgs, hostname, ... }:
+{ pkgs, ... }:
 
 {
-  imports = [
-    ./hosts/${hostname}/nixos.nix
-  ];
-
-  # User
   users.users.andrew = {
     description = "Andrew Schmid";
     extraGroups = [ "networkmanager" "wheel" ];

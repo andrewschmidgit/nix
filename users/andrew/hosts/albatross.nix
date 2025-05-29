@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ../../home/sway.nix
+    ../home/sway.nix
   ];
 
   wayland.windowManager.sway.config.output = {

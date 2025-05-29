@@ -1,6 +1,7 @@
 {
   inputs,
-  userConfig,
+  config,
+  username,
   hostname,
   nixosModules,
   ...
@@ -18,8 +19,7 @@
 
   networking.hostName = hostname;
 
-  nix.settings.trusted-users = [ userConfig.name ];
+  nix.settings.trusted-users = [ username ];
 
   system.stateVersion = "24.11"; # Did you read the comment?
-
 }

@@ -1,11 +1,19 @@
-{ hostname, username, pkgs, ... }: {
-  imports = [
+{
+  pkgs,
+  lib,
+  hostname,
+  username,
+  ...
+}:
+
+{
+  imports = let
+    hostHomeConfig = ./hosts/${hostname}.nix;
+  in [
     ./home/git.nix
     ./home/tmux.nix
     ./home/zsh.nix
-
-    ./hosts/${hostname}/home.nix
-  ];
+  ] ++ lib.optional (builtins.pathExists hostHomeConfig) hostHomeConfig;
 
   programs.home-manager.enable = true;
 
