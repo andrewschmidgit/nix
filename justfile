@@ -1,15 +1,16 @@
 default:
   just --list
 
-deploy machine hostname='':
+deploy machine='':
   #!/usr/bin/env sh
-  if [ -z "{{hostname}}" ]; then
-    sudo nixos-rebuild switch --fast --flake ".#{{machine}}"
+  host="$(hostname)"
+  if [ -z "{{machine}}" ]; then
+    sudo nixos-rebuild switch --fast --flake ".#$host"
   else
     nixos-rebuild switch \
       --fast \
       --flake ".#{{machine}}" \
-      --target-host "{{hostname}}" \
+      --target-host "{{machine}}" \
       --use-remote-sudo
   fi
 
