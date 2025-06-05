@@ -1,7 +1,7 @@
 {
   pkgs,
   inputs,
-  hostname,
+  birdhouse,
   ...
 }: {
   imports = [
@@ -37,7 +37,7 @@
   boot.loader.grub.device = "/dev/vda";
   boot.loader.grub.useOSProber = true;
 
-  networking.hostName = hostname;
+  networking.hostName = birdhouse.hostname;
   
   system.stateVersion = "25.05";
 }

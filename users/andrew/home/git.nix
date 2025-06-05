@@ -1,8 +1,8 @@
-{ config, ... }: {
+{ config, birdhouse, ... }: {
   programs.git = {
     enable = true;
-    userName = "Andrew Schmid";
-    userEmail = config.age.secrets.andrewEmail.path;
+    userName = birdhouse.name;
+    userEmail = config.age.secrets.email.path;
 
     signing = {
       key = "~/.ssh/id_ed25519.pub";

@@ -1,8 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, birdhouse, ... }:
 
 {
   users.users.andrew = {
-    description = "Andrew Schmid";
+    description = birdhouse.name;
     extraGroups = [ "networkmanager" "wheel" ];
     isNormalUser = true;
     shell = pkgs.zsh;

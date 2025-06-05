@@ -29,11 +29,13 @@
       albatross = mkSystem {
         hostname = "albatross";
         username = "andrew";
+        name = "Andrew Schmid";
       };
 
       pelican = mkSystem {
         hostname = "pelican";
         username = "andrew";
+        name = "Andrew Schmid";
       };
     };
   };

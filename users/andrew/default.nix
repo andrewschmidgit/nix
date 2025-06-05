@@ -1,14 +1,13 @@
 {
   pkgs,
   lib,
-  hostname,
-  username,
+  birdhouse,
   ...
 }:
 
 {
   imports = let
-    hostHomeConfig = ./hosts/${hostname}.nix;
+    hostHomeConfig = ./hosts/${birdhouse.hostname}.nix;
   in [
     ./home/git.nix
     ./home/tmux.nix
@@ -17,11 +16,11 @@
 
   programs.home-manager.enable = true;
 
-  age.secrets.andrewEmail.file = ./email.age;
+  age.secrets.email.file = ./email.age;
 
   home = {
-    username = username;
-    homeDirectory = "/home/${username}";
+    username = birdhouse.username;
+    homeDirectory = "/home/${birdhouse.username}";
     
     file.".local/bin" = {
       source = ../../scripts;

@@ -1,8 +1,7 @@
 {
   inputs,
   config,
-  username,
-  hostname,
+  birdhouse,
   ...
 }:
 
@@ -19,9 +18,9 @@
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
 
-  networking.hostName = hostname;
+  networking.hostName = birdhouse.hostname;
 
-  nix.settings.trusted-users = [ username ];
+  nix.settings.trusted-users = [ birdhouse.username ];
 
   system.stateVersion = "24.11"; # Did you read the comment?
 }

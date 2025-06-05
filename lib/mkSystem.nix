@@ -3,6 +3,7 @@
 {
   hostname,
   username,
+  name ? "",
   system ? "x86_64-linux",
 }:
 
@@ -17,11 +18,19 @@ let
   # Home Manager
   home-manager = inputs.home-manager.nixosModules;
   userHomeConfig = ../users/${username};
+
+  # secrets
+  secretsPath = ../secrets;
+
+  # complete configuration
+  birdhouse = {
+    inherit hostname username name secretsPath;
+  };
 in nixpkgs.lib.nixosSystem {
   inherit system;
 
   specialArgs = {
-    inherit inputs hostname username;
+    inherit inputs birdhouse;
   };
 
   modules = [
@@ -44,7 +53,7 @@ in nixpkgs.lib.nixosSystem {
 
       home-manager.users.${username} = import userHomeConfig;
       home-manager.extraSpecialArgs = {
-        inherit inputs hostname username;
+        inherit inputs birdhouse;
       };
 
       home-manager.sharedModules = [ agenix.homeManagerModules.default ];
