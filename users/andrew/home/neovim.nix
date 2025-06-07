@@ -16,5 +16,7 @@
       smartindent = true;
       expandtab = true;
     };
+
+    plugins.lualine.enable = true;
   };
 }
