@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   lib,
   birdhouse,
@@ -10,12 +11,17 @@
     hostHomeConfig = ./hosts/${birdhouse.hostname}.nix;
   in [
     ./home/git.nix
+    ./home/neovim.nix
     ./home/tmux.nix
     ./home/zsh.nix
   ] ++ lib.optional (builtins.pathExists hostHomeConfig) hostHomeConfig;
 
   programs.home-manager.enable = true;
 
+  xdg.enable = true;
+
+  # fix for default value of "${XDG_CONFIG_DIR}/agenix"
+  age.secretsDir = "${config.xdg.configHome}/agenix";
   age.secrets.email.file = ./email.age;
 
   home = {
@@ -41,7 +47,6 @@
     # utils
     jq
     vim
-    neovim
     just
     fzf
 

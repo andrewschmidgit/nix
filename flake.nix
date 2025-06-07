@@ -2,29 +2,29 @@
   description = "A template that shows all standard flake outputs";
 
   inputs = {
+    # nixpkgs
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.11";
 
+    # home-manager
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    # agenix
     agenix.url = "github:ryantm/agenix";
     agenix.inputs.nixpkgs.follows = "nixpkgs";
     agenix.inputs.darwin.follows = ""; # don't download darwin deps
+
+    # nixvim
+    nixvim.url = "github:nix-community/nixvim";
+    nixvim.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = {
-    self,
-    agenix,
-    nixpkgs,
-    home-manager,
-    ... }@inputs:
-  let
+  outputs = { self, nixpkgs, ... }@inputs: let
     mkSystem = import ./lib/mkSystem.nix {
       inherit nixpkgs inputs;
     };
-  in
-  {
+  in {
     nixosConfigurations = {
       albatross = mkSystem {
         hostname = "albatross";

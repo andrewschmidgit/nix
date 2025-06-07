@@ -19,6 +19,9 @@ let
   home-manager = inputs.home-manager.nixosModules;
   userHomeConfig = ../users/${username};
 
+  # nixvim
+  nixvim = inputs.nixvim;
+
   # secrets
   secretsPath = ../secrets;
 
@@ -56,7 +59,10 @@ in nixpkgs.lib.nixosSystem {
         inherit inputs birdhouse;
       };
 
-      home-manager.sharedModules = [ agenix.homeManagerModules.default ];
+      home-manager.sharedModules = [
+        agenix.homeManagerModules.default
+        nixvim.homeModules.nixvim
+      ];
     }
   ];
 }
