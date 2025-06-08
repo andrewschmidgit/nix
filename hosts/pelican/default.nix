@@ -9,6 +9,7 @@
   imports = [
     ./hardware-configuration.nix
 
+    ./caddy.nix
     ./immich.nix
   ];
 
