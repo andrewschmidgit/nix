@@ -2,7 +2,7 @@
   programs.git = {
     enable = true;
     userName = birdhouse.name;
-    userEmail = config.age.secrets.email.path;
+    userEmail = "andrewschmid-dev@proton.me";
 
     signing = {
       key = "~/.ssh/id_ed25519.pub";

@@ -8,9 +8,6 @@ let
 
   cloudflare = [ andrew pelican ];
 in {
-  # emails
-  "users/andrew/email.age".publicKeys = [ andrew ] ++ hosts;
-
   # cloudflare
   "secrets/cloudflare.age".publicKeys = cloudflare;
   "secrets/cloudflare-email.age".publicKeys = cloudflare;

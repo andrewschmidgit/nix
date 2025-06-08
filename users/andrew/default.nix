@@ -22,7 +22,6 @@
 
   # fix for default value of "${XDG_CONFIG_DIR}/agenix"
   age.secretsDir = "${config.xdg.configHome}/agenix";
-  age.secrets.email.file = ./email.age;
 
   home = {
     username = birdhouse.username;
