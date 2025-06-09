@@ -11,7 +11,7 @@
     hostHomeConfig = ./hosts/${birdhouse.hostname}.nix;
   in [
     ./home/git.nix
-    ./home/neovim.nix
+    ./home/neovim
     ./home/tmux.nix
     ./home/zsh.nix
   ] ++ lib.optional (builtins.pathExists hostHomeConfig) hostHomeConfig;
@@ -31,10 +31,6 @@
       source = ../../scripts;
       recursive = true;
     };
-  };
-
-  home.sessionVariables = {
-    EDITOR = "vim";
   };
 
   home.packages = with pkgs; [
