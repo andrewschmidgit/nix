@@ -3,6 +3,7 @@
 {
   hostname,
   username,
+  isPrimaryUser ? true,
   name ? "",
   system ? "x86_64-linux",
 }:
@@ -14,6 +15,9 @@ let
 
   # agenix
   agenix = inputs.agenix;
+
+  # disko
+  disko = inputs.disko;
 
   # Home Manager
   home-manager = inputs.home-manager.nixosModules;
@@ -27,7 +31,7 @@ let
 
   # complete configuration
   birdhouse = {
-    inherit hostname username name secretsPath;
+    inherit hostname username name secretsPath isPrimaryUser;
   };
 in nixpkgs.lib.nixosSystem {
   inherit system;
@@ -40,13 +44,16 @@ in nixpkgs.lib.nixosSystem {
     hostConfig
     userOsConfig
 
-    ../modules
+    # ../modules
 
     # agenix
     agenix.nixosModules.default
     {
       environment.systemPackages = [ agenix.packages.${system}.default ];
     }
+
+    # disko
+    disko.nixosModules.disko
 
     # home-manager
     home-manager.home-manager {

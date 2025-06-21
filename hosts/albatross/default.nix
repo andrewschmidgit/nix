@@ -1,10 +1,9 @@
 {
   pkgs,
-  inputs,
-  birdhouse,
   ...
 }: {
   imports = [
+    ../common
     ./hardware-configuration.nix
   ];
 
@@ -36,8 +35,6 @@
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/vda";
   boot.loader.grub.useOSProber = true;
-
-  networking.hostName = birdhouse.hostname;
   
   system.stateVersion = "25.05";
 }
