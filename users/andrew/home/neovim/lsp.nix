@@ -1,10 +1,9 @@
 { ... }: 
 
 {
-  programs.nixvim.lsp = {
+  programs.nixvim.plugins.lsp = {
     enable = true;
-
-    inlayHints.enable = true;
+    inlayHints = true;
 
     servers = {
       nixd.enable = true;

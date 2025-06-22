@@ -16,3 +16,10 @@ deploy machine='':
 
 cypher FILE:
   agenix -e {{FILE}}
+
+install machine user ip:
+  nix run github:nix-community/nixos-anywhere -- \
+    --flake ".#{{machine}}" \
+    --generate-hardware-config nixos-generate-config ./hosts/{{machine}}/hardware-configuration.nix \
+    -i ~/.ssh/id_ed25519 \
+    {{user}}@{{ip}}
