@@ -19,6 +19,7 @@
   boot.loader.grub.efiInstallAsRemovable = true;
 
   networking.hostName = birdhouse.hostname;
+  networking.hostId = "8425e349";
 
   nix.settings.trusted-users = [ birdhouse.username ];
 

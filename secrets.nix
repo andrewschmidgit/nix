@@ -3,13 +3,11 @@ let
   users = [ andrew ];
 
   albatross = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGs33GjTUdtf6/5uLU7mEgzopUVCfNXkDMm135A9scvz";
-  pelican = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP7wY8v8UqC/mSi73XMD/UoZMxf+MbunOuk6rohZutub";
+  pelican = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHNXGQWqqBN49aLyz7BB6yFhU0868EU46IWX1UmxHQaS";
   hosts = [ albatross pelican ];
 
   cloudflare = [ andrew pelican ];
 in {
   # cloudflare
   "secrets/cloudflare.age".publicKeys = cloudflare;
-  "secrets/cloudflare-email.age".publicKeys = cloudflare;
-  "secrets/cloudflare-domain.age".publicKeys = cloudflare;
 }

@@ -30,7 +30,6 @@
           size = "100%";
           content = {
             type = "btrfs";
-            extraArgs = [ "-f" ]; # override existing partition
 
             subvolumes."@root" = {
               mountpoint = "/";
@@ -55,5 +54,45 @@
         };
       };
     };
+
+    # disk.storage1 = {
+    #   type = "disk";
+    #   device = "/dev/disk/by-id/wwn-0x50014ee25e5d877b";
+    #   content = {
+    #     type = "gpt";
+    #     partitions.zfs = {
+    #       size = "100%";
+    #       content = {
+    #         type = "zfs";
+    #         pool = "storage";
+    #       };
+    #     };
+    #   };
+    # };
+    #
+    # disk.storage2 = {
+    #   type = "disk";
+    #   device = "/dev/disk/by-id/wwn-0x50014ee265b7177d";
+    #   content = {
+    #     type = "gpt";
+    #     partitions.zfs = {
+    #       size = "100%";
+    #       content = {
+    #         type = "zfs";
+    #         pool = "storage";
+    #       };
+    #     };
+    #   };
+    # };
+
+    # zpool.storage = {
+    #   type = "zpool";
+    #   mode = "mirror";
+    #
+    #   datasets.dataset = {
+    #     type = "zfs_fs";
+    #     mountpoint = "/storage";
+    #   };
+    # };
   };
 }
