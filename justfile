@@ -3,6 +3,7 @@ default:
 
 deploy machine='':
   #!/usr/bin/env sh
+  set -euo pipefail
   host="$(hostname)"
   if [ -z "{{machine}}" ]; then
     sudo nixos-rebuild switch --fast --flake ".#$host"
@@ -13,6 +14,13 @@ deploy machine='':
       --target-host "{{machine}}" \
       --use-remote-sudo
   fi
+
+update machine='':
+  #!/usr/bin/env sh
+  set -euo pipefail
+  host="$(hostname)"
+  nix flake update
+  just deploy {{machine}}
 
 install machine host:
   nix run github:nix-community/nixos-anywhere -- \
