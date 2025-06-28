@@ -27,7 +27,7 @@
       "$mod" = "SUPER";
       bind = [
         "$mod, d, exec, rofi -show run"
-        "$mod, t, exec, tofi-drun"
+        "$mod, t, exec, tofi-drun --drun-launch=true"
         "$mod, Backspace, exec, shotman -c output"
         "$mod_SHIFT, Backspace, exec, shotman -c output"
       ];
