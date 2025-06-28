@@ -3,11 +3,10 @@
 {
   imports = [
     ../home/sway.nix
+    ../home/hyprland.nix
   ];
 
-  wayland.windowManager.sway.config.output = {
-    "Virtual-1" = {
-      mode = "1920x1440@60Hz";
-    };
-  };
+  wayland.windowManager.hyprland.settings.monitor = [
+    "Virtual-1, 1920x1440@30, 0x0, 1"
+  ];
 }

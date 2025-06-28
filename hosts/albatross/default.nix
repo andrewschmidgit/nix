@@ -7,7 +7,7 @@
     ./hardware-configuration.nix
   ];
 
-  programs.sway.enable = true;
+  programs.hyprland.enable = true;
 
   # for sway with home-manager
   security.polkit.enable = true;
@@ -27,7 +27,7 @@
           --time \
           --asterisks \
           --user-menu \
-          --cmd sway
+          --cmd hyprland
       '';
     };
   };
