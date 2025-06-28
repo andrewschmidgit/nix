@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ../home/sway.nix
     ../home/hyprland.nix
   ];
 

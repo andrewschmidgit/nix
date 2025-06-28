@@ -9,6 +9,7 @@
   imports = [
     ./alacritty.nix
     ./rofi
+    ./tofi.nix
   ];
 
   home.packages = with pkgs; [
@@ -17,6 +18,7 @@
     wl-clipboard
     mako
     shotman
+    clapboard
   ];
 
   wayland.windowManager.hyprland = {
@@ -25,6 +27,7 @@
       "$mod" = "SUPER";
       bind = [
         "$mod, d, exec, rofi -show run"
+        "$mod, t, exec, tofi-drun"
         "$mod, Backspace, exec, shotman -c output"
         "$mod_SHIFT, Backspace, exec, shotman -c output"
       ];
