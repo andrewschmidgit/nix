@@ -1,4 +1,5 @@
 {
+  pkgs,
   birdhouse,
   ...
 }:
@@ -12,6 +13,10 @@
 
     ./caddy.nix
     ./immich.nix
+  ];
+
+  environment.systemPackages = with pkgs; [
+    zfs
   ];
 
   boot.loader.grub.enable = true;
