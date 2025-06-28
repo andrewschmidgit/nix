@@ -6,13 +6,13 @@ deploy machine='':
   set -euo pipefail
   host="$(hostname)"
   if [ -z "{{machine}}" ]; then
-    sudo nixos-rebuild switch --fast --flake ".#$host"
+    sudo nixos-rebuild switch --no-reexec --flake ".#$host"
   else
     nixos-rebuild switch \
-      --fast \
+      --no-reexec \
+      --sudo \
       --flake ".#{{machine}}" \
-      --target-host "{{machine}}" \
-      --use-remote-sudo
+      --target-host "{{machine}}"
   fi
 
 update machine='':
