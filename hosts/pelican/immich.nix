@@ -8,6 +8,9 @@ let
 in {
   services.immich = {
     enable = true;
+    group = "multimedia";
+    mediaLocation = "/storage/media/immich";
+    accelerationDevices = [ "/dev/dri/renderD128" ];
   };
 
   services.caddy.virtualHosts."immich.${domain}".extraConfig = ''

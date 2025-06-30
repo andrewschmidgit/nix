@@ -90,9 +90,20 @@
       mode = "mirror";
       mountpoint = "/storage";
 
-      datasets.immich = {
+      rootFsOptions = {
+        checksum = "edonr";
+        compression = "lz4";
+        relatime = "on";
+      };
+
+      options = {
+        ashift = "12"; # 2^ashift block sector size (4096 bytes)
+        autotrim = "on";
+      };
+
+      datasets.media = {
         type = "zfs_fs";
-        mountpoint = "/storage/immich";
+        mountpoint = "/storage/media";
       };
     };
   };

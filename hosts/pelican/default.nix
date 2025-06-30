@@ -15,6 +15,13 @@
     ./immich.nix
   ];
 
+  users.groups.multimedia = {};
+  users.users."${birdhouse.username}".extraGroups = [ "multimedia" ];
+  systemd.tmpfiles.settings.multimedia."/storage/media".d = {
+    group = "multimedia";
+    mode = "0770";
+  };
+
   environment.systemPackages = with pkgs; [
     zfs
   ];
