@@ -36,6 +36,7 @@
       notify.enable = true;
       todo-comments.enable = true;
       web-devicons.enable = true;
+      which-key.enable = true;
     };
   };
 }
